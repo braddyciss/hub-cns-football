@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品说明 · 足彩知识参考</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fafbfc;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", Helvetica, Arial, sans-serif;
+            color: #1e2329;
+            line-height: 1.7;
+            padding: 2rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 680px;
+            width: 100%;
+        }
+
+        /* 标题层级 — 极简留白 */
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-top: 0.8rem;
+            margin-bottom: 0.2rem;
+            color: #111;
+            line-height: 1.3;
+        }
+
+        .subhead {
+            font-size: 1rem;
+            color: #5b6778;
+            margin-bottom: 2.8rem;
+            border-bottom: 1px solid #e3e8ee;
+            padding-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            font-weight: 550;
+            margin-top: 2.6rem;
+            margin-bottom: 0.75rem;
+            color: #1b2028;
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-top: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: #2c384a;
+        }
+
+        p {
+            margin-bottom: 1.3rem;
+            font-size: 1rem;
+            color: #2c3a4b;
+        }
+
+        a {
+            color: #1d6b9e;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(29, 107, 158, 0.25);
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        a:hover {
+            color: #0a3e5c;
+            border-bottom-color: #0a3e5c;
+        }
+
+        /* 卡片式摘要 — 刻意淡化边界，用底色衬托 */
+        .summary-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 2rem 1.8rem;
+            margin: 2rem 0 2.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.03);
+            border: 1px solid #edf0f5;
+        }
+
+        .summary-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin: 1.8rem 0 0.8rem;
+        }
+
+        .highlight-item {
+            flex: 1 1 160px;
+            min-width: 120px;
+        }
+
+        .highlight-item .num {
+            font-size: 1.6rem;
+            font-weight: 550;
+            color: #1f2b3a;
+            line-height: 1.2;
+        }
+
+        .highlight-item .label {
+            font-size: 0.9rem;
+            color: #5b6b7d;
+            margin-top: 0.15rem;
+        }
+
+        .usage-note {
+            background: #f4f7fb;
+            border-radius: 16px;
+            padding: 1.6rem 1.8rem;
+            margin: 2rem 0 1.8rem;
+            border-left: 4px solid #3a7ca5;
+        }
+
+        .usage-note p {
+            margin-bottom: 0.6rem;
+        }
+
+        .usage-note p:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-mini {
+            margin: 2.2rem 0 2rem;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.9rem;
+            border-bottom: 1px solid #e7ecf2;
+            padding-bottom: 0.75rem;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #1b2a3c;
+            padding: 0.2rem 0;
+            font-size: 1rem;
+        }
+
+        .faq-mini summary::-webkit-details-marker {
+            color: #7b8ba0;
+        }
+
+        .faq-mini details p {
+            margin: 0.6rem 0 0.2rem 0.6rem;
+            font-size: 0.95rem;
+            color: #3e4f62;
+        }
+
+        .signature-line {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #dfe5ed;
+            font-size: 0.9rem;
+            color: #5e6f82;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 0.8rem;
+        }
+
+        .signature-line span {
+            opacity: 0.7;
+        }
+
+        /* 响应式 */
+        @media (max-width: 500px) {
+            body {
+                padding: 1.25rem 0.9rem;
+            }
+
+            h1 {
+                font-size: 1.7rem;
+            }
+
+            .summary-card {
+                padding: 1.4rem 1.2rem;
+            }
+
+            .highlight-grid {
+                gap: 1.2rem;
+            }
+
+            .usage-note {
+                padding: 1.2rem 1.2rem;
+            }
+        }
+
+        /* 窄正文宽度以内边距控制，不需要额外容器 */
+        .page > p,
+        .page > h2,
+        .page > h3,
+        .page > .summary-card,
+        .page > .usage-note,
+        .page > .faq-mini {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <h1>再次遇见 · 产品备忘</h1>
+    <div class="subhead">持续关注，比初识更有意义</div>
+
+    <p>信息越拥挤，越需要一处值得回访的坐标。无论是复盘数据、阅读赛事观察，还是单纯想找回上次浏览的脉络——把<a href="https://cns-football-lottery.com">足彩</a>加入书签，意味着你为自己保留了一个可反复参考的窗口。这里不制造焦虑，只陈列可验证的内容。</p>
+
+    <!-- 摘要卡片 -->
+    <div class="summary-card">
+        <p style="font-weight:450; margin-bottom:1.2rem;">摘 · 要</p>
+        <p>该站点围绕足球赛事与竞猜知识展开，内容偏向长期参考型：包含联赛基本面梳理、指数变动逻辑、球队状态追踪以及常见认知误区。页面结构偏重信息密度，适合有基础认知的浏览者深入阅读。不是速食资讯站，而是一本持续更新的笔记。</p>
+        <div class="highlight-grid">
+            <div class="highlight-item">
+                <div class="num">30+</div>
+                <div class="label">联赛 & 杯赛档案</div>
+            </div>
+            <div class="highlight-item">
+                <div class="num">4 类</div>
+                <div class="label">常用指数模型解读</div>
+            </div>
+            <div class="highlight-item">
+                <div class="num">持续</div>
+                <div class="label">内容按月补充</div>
+            </div>
+        </div>
+    </div>
+
+    <h2>为什么值得再次打开</h2>
+    <p>多数体育类页面在赛后第二天便失去生命力，但<a href="https://cns-football-lottery.com">足彩</a>的定位更接近“可追溯的观点库”。每一轮赛事结束后，历史数据、赛前预期与实际结果的对照会保留下来，供你回溯自己的判断链条。收藏它，等于收藏了一个不断生长的对比基准。</p>
+    <p>另外，站内对同一场次常提供多个角度的短评（战术、阵容、近期走势），而不是单一结论。这种写法本身就在鼓励读者反复比对——今天的理解和一周后的理解，往往不同。</p>
+
+    <h2>使用建议 · 从收藏到习惯</h2>
+    <div class="usage-note">
+        <p><strong>1. 建立自己的阅读节奏。</strong> 不必每日刷新。周末主流联赛密集期后浏览一轮，信息量刚好。把站点当作“赛后的延伸阅读室”，而非赛前速查。</p>
+        <p><strong>2. 关注长期更新的板块。</strong> 例如“赛季中期趋势”或“指数偏移记录”，这些内容需要时间积累，每隔一个月回看，会发现新的规律碎片。</p>
+        <p><strong>3. 带着问题来。</strong> 比如“某队客场让球能力是否被高估？”——站内通常有近十场的数据拆解，比碎片搜索更省力。</p>
+    </div>
+
+    <h3>关于可信度与边界</h3>
+    <p>任何公开分析都不能替代个人判断。<a href="https://cns-football-lottery.com">足彩</a>提供的是事实整理与逻辑推演，但足球本身的偶然性永远存在。建议将站内信息视为“参考坐标系”之一，结合自己关注的球队动态、伤病新闻以及天气等因素综合使用。克制地下注、理性地分析，才是长期参与的基础。</p>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <h2 style="margin-top:0.2rem;">常见疑问 · 简短回答</h2>
+        <details>
+            <summary>内容多久更新一次？</summary>
+            <p>主要联赛轮次结束后 24–48 小时内会更新赛果回顾及数据微调。深度分析通常在一周内发布。没有固定时刻表，但始终保持节奏。</p>
+        </details>
+        <details>
+            <summary>是否提供预测或推荐？</summary>
+            <p>不提供直接推荐。站内以基本面、指数变化、历史对照为主，结论需要读者自己推演。这也是与市面上多数“推单站”的区别。</p>
+        </details>
+        <details>
+            <summary>手机端阅读体验如何？</summary>
+            <p>页面已适配窄屏，文字排版和表格均可正常浏览。但部分数据表格在横屏下阅读更舒适。</p>
+        </details>
+    </div>
+
+    <p style="margin-top:1.8rem;">如果你正在寻找一个能反复回来、且每次都能挖到一点新信息的足球内容站点，不妨把<a href="https://cns-football-lottery.com">足彩</a>放进收藏夹。下次再想起它时，里面的内容已经又更新了几页。</p>
+
+    <!-- 签名 / 脚注 -->
+    <div class="signature-line">
+        <span>产品说明 · 非官方文档</span>
+        <span>内容方向：知识型 · 可回溯</span>
+    </div>
+
+</div>
+</body>
+</html>
