@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>简明指南 · 宝威体育</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #fafbfc;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', sans-serif;
+      line-height: 1.7;
+      color: #1e2229;
+      padding: 2.5rem 1.25rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 720px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 28px;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.03), 0 1px 4px rgba(0, 0, 0, 0.04);
+      padding: 3.5rem 2.5rem;
+    }
+
+    @media (max-width: 560px) {
+      body {
+        padding: 1.25rem 0.75rem;
+      }
+      .page {
+        padding: 2.5rem 1.5rem;
+        border-radius: 20px;
+      }
+    }
+
+    /* 开场短句 · hero-style */
+    .hero {
+      margin-bottom: 2.8rem;
+    }
+
+    .hero-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #6d7885;
+      background: #eef1f4;
+      padding: 0.2rem 0.9rem;
+      border-radius: 40px;
+      margin-bottom: 1.2rem;
+      font-weight: 500;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      color: #0d121b;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero .sub {
+      font-size: 1.05rem;
+      color: #3c4652;
+      max-width: 580px;
+      border-left: 3px solid #d0d7de;
+      padding-left: 1.2rem;
+      margin-top: 0.4rem;
+    }
+
+    /* 承接段落 */
+    .intro-text {
+      margin-bottom: 2.8rem;
+      font-size: 1rem;
+      color: #2a323e;
+      border-bottom: 1px solid #edf0f3;
+      padding-bottom: 2rem;
+    }
+
+    .intro-text p {
+      margin-bottom: 1.2rem;
+    }
+
+    .intro-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .intro-text strong {
+      font-weight: 500;
+      color: #0d121b;
+    }
+
+    /* 特点列表 —— 紧凑清晰 */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem 2rem;
+      margin: 2.6rem 0 2.2rem;
+    }
+
+    @media (max-width: 520px) {
+      .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 1.6rem;
+      }
+    }
+
+    .feature-item {
+      border-top: 2px solid #eaeef2;
+      padding-top: 1rem;
+    }
+
+    .feature-item .title {
+      font-weight: 500;
+      font-size: 1rem;
+      color: #0f151f;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .feature-item .title span {
+      background: #eef2f6;
+      border-radius: 6px;
+      padding: 0 0.4rem;
+      font-size: 0.75rem;
+      color: #3e4a5a;
+      font-weight: 450;
+    }
+
+    .feature-item p {
+      font-size: 0.92rem;
+      color: #3e4958;
+      line-height: 1.6;
+    }
+
+    /* 场景 + 提示卡片 */
+    .callout {
+      background: #f5f8fc;
+      border-radius: 20px;
+      padding: 1.6rem 1.8rem;
+      margin: 2.6rem 0 1.8rem;
+    }
+
+    .callout h3 {
+      font-weight: 500;
+      font-size: 1rem;
+      color: #102a3c;
+      margin-bottom: 0.675rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .callout p {
+      font-size: 0.95rem;
+      color: #2f3b49;
+      margin-bottom: 0.6rem;
+    }
+
+    .callout p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .callout a {
+      color: #0f2b3f;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+      text-decoration-color: #b7c4d1;
+      font-weight: 450;
+      transition: text-decoration-color 0.2s, color 0.2s;
+    }
+
+    .callout a:hover {
+      color: #001d34;
+      text-decoration-color: #001d34;
+    }
+
+    /* 温和结尾 */
+    .closing {
+      margin-top: 2.4rem;
+      padding-top: 1.6rem;
+      border-top: 1px solid #e7ecf1;
+      font-size: 0.95rem;
+      color: #4a5768;
+      line-height: 1.7;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    .closing .note {
+      max-width: 400px;
+    }
+
+    .closing .meta {
+      font-size: 0.8rem;
+      color: #8895a6;
+      white-space: nowrap;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #eef2f6;
+      margin: 2.4rem 0 0.8rem;
+    }
+
+    /* 辅助内联链接 */
+    .inline-link {
+      color: #0f2b3f;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-color: #cbd5e0;
+      font-weight: 450;
+      transition: 0.2s;
+    }
+
+    .inline-link:hover {
+      color: #021e30;
+      text-decoration-color: #021e30;
+    }
+
+    /* 默认段落内链接 (非callout) */
+    .intro-text a {
+      color: #0f2b3f;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-color: #bfccd9;
+      font-weight: 450;
+    }
+
+    .intro-text a:hover {
+      color: #021e30;
+      text-decoration-color: #021e30;
+    }
+
+    @media (max-width: 440px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .closing {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .closing .meta {
+        white-space: normal;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- hero / 开场短句 -->
+  <div class="hero">
+    <div class="hero-label">简明指南</div>
+    <h1>赛事信息·访问提醒</h1>
+    <div class="sub">一份关于宝威体育的基本索引与常见说明。</div>
+  </div>
+
+  <!-- 承接段落：从使用角度切入 -->
+  <div class="intro-text">
+    <p>
+      <strong>宝威体育</strong> 提供体育赛事资讯与数据呈现。无论你是初次接触，还是希望快速了解其核心功能，以下内容都能帮助你建立基本认知。
+    </p>
+    <p>
+      平台覆盖主流竞技项目，包括足球、篮球、网球及电子竞技等。信息结构以比赛日历、实时数据、队伍档案及历史对阵为主，层级清晰，便于按需检索。日常使用中，建议优先关注赛前预览与数据更新频率，这两个模块能直接提升信息获取效率。
+    </p>
+    <p>
+      为保证访问顺畅，推荐使用现代浏览器（Chrome、Edge、Safari 最新版本），并保持网络环境稳定。遇到加载延迟时，可尝试刷新或稍后重试。平台针对移动设备做了适配，在手机或平板上浏览时同样能获得一致体验。
+    </p>
+  </div>
+
+  <!-- 特点列表 -->
+  <div class="feature-grid">
+    <div class="feature-item">
+      <div class="title">📋 赛事覆盖 <span>BROAD</span></div>
+      <p>超过 40 个联赛与杯赛，每周更新赛程、比分与统计数据。从顶级联赛到次级赛事均有收录。</p>
+    </div>
+    <div class="feature-item">
+      <div class="title">📊 结构优先 <span>LAYERED</span></div>
+      <p>页面采用分区导航：赛程、积分、阵容、数据。减少跳转层级，多数信息可在两三次点击内找到。</p>
+    </div>
+    <div class="feature-item">
+      <div class="title">🕒 更新节奏 <span>REGULAR</span></div>
+      <p>比赛期间实时推送关键事件（进球、换人、红黄牌）。赛后数据通常在 30 分钟内完成归档。</p>
+    </div>
+    <div class="feature-item">
+      <div class="title">🔐 无需注册 <span>OPEN</span></div>
+      <p>浏览排行榜、赛程及历史记录无需账户。部分深度统计功能需登录，注册过程仅需邮箱与昵称。</p>
+    </div>
+  </div>
+
+  <!-- 场景 + 提示卡片（含链接） -->
+  <div class="callout">
+    <h3>📌 使用场景提示</h3>
+    <p>
+      如果你在寻找某场即将开始的比赛时间，或者对比两支球队的近期数据，可以直接从首页顶部搜索栏切入。若需要查询过往赛季的详细数据，进入「历史」板块后按年份和联赛筛选即可。
+    </p>
+    <p>
+      平台首页作为所有信息的起点，集中展示了焦点赛事、热门队伍及最新动态。你可以将 <a href="https://asia-baoweisports.com">宝威体育</a> 添加至浏览器书签，以便日常快速进入。对于移动端用户，同样支持添加到主屏幕（iOS Safari / Android Chrome），获得类似原生应用的快捷入口。
+    </p>
+    <p style="font-size:0.9rem; background:#e9eef4; border-radius:12px; padding:0.5rem 0.9rem; margin-top:0.8rem;">
+      ⚡ 提示：部分页面加载数据时可能短暂延迟，尤其在多场比赛同时进行时，建议保持页面打开或稍后重新加载。
+    </p>
+  </div>
+
+  <!-- 温和结尾 + FAQ 摘要风格 -->
+  <div class="closing">
+    <div class="note">
+      <strong style="font-weight:500;">常见疑问片段</strong><br>
+      • 数据来源：官方统计与第三方数据接口整合。<br>
+      • 语言支持：中文为主，部分页面提供英文切换。<br>
+      • 反馈渠道：页面底部设有意见入口，描述问题时请附上截图与浏览器版本。
+    </div>
+    <div class="meta">
+      版本简述 · 2025
+    </div>
+  </div>
+
+  <!-- 额外的链接复用（保证至少一个独立a标签，文本严格为「宝威体育」） -->
+  <hr>
+  <p style="font-size:0.9rem; color:#5e6b7d; margin-top:0.4rem;">
+    若需快速定位赛事信息，可直接前往 <a href="https://asia-baoweisports.com" class="inline-link">宝威体育</a>，首页已整合主要导航入口。
+  </p>
+
+</div>
+
+</body>
+</html>
